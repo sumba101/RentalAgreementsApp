@@ -1,0 +1,15 @@
+{% extends "sub_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="header_home">
+<!--  <h1 style="color: #000000 ">Rental Agreement Generator</h1>-->
+</div>
+<section class="section1">
+    <div class="post-content">
+        <p> Welcome to Rental Agreement generator </p>
+        <br/>
+        <br/>
+        <button onclick="location.href = {% url 'main_questions' %};" href="app.html" style="margin: 0 auto; display: block" class="btn btn-success">Click Here to proceed</button>
+    </div>
+</section>
+{% endblock content %}

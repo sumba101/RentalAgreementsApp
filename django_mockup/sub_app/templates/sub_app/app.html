@@ -1,0 +1,17 @@
+{% extends "sub_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="header_analyer">
+  <h1 style="color: #050605">Fill in the following details</h1>
+</div>
+<section class="section1">
+    <div class="post-content">
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br />
+        <button type="submit" class="btn btn-success" >Submit</button>
+    </form>
+    </div>
+</section>
+{% endblock content %}

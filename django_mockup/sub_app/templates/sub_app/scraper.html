@@ -1,0 +1,50 @@
+{% extends "sub_app/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<header>
+  <h1 style="color: #2b2b2b">Enter the dataset to work on</h1>
+</header>
+<section class="section1">
+ <div class="post-content">
+     <h4 style="width: 500px; margin: 0 auto;">Enter the URL for the website to scrape</h4>
+    <form method="post">
+        {% csrf_token %}
+        {{ scraper|crispy }}
+        <br />
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+        <br />
+
+     {% if Upload_error == 1 %}
+     <p style="color:red;" > Please enter a non-empty csv format file </p>
+     {% endif %}
+
+     <div>
+        <form method="post" enctype="multipart/form-data"  >
+            {% csrf_token %}
+            <input type="file" name="document">
+            <button type="submit" class="btn btn-success">Upload Dataset</button>
+        </form>
+    </div>
+
+
+    <br/>
+
+    {% if Download == 1 %}
+    <div>
+        <form method="get" action="{% url "csv_download" %}" >
+            <button type="submit" id="btDownload" class="btn btn-success" >Download Data</button>
+        </form>
+    </div>
+    {% endif %}
+
+     <br />
+
+    {% if Data_ready == 1 %}
+     <div style="width: 500px; margin: 0 auto;">
+         <button onclick="location.href = {% url 'main_param' %};" id="transition button" class="btn btn-success" >Go to Data Analyser</button>
+     </div>
+    {% endif %}
+ </div>
+</section>
+{% endblock content %}
