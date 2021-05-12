@@ -1,13 +1,15 @@
-import torch
-import nmslib
+from semantic_search import *
 
-embeddings = torch.load('embeddings.pt').detach().numpy()
+tokenizer, model = load_models()
+print('Tokenizer & model loaded.')
 
+clauses = load_uncommon_clauses()
+print('clauses', clauses)
+print(len(clauses))
+
+
+embeddings = get_embeddings(clauses, tokenizer, model)
+print('embeddings', embeddings)
 print(embeddings.shape)
 
-index = nmslib.init(method='hnsw', space='cosinesimil')
-index.addDataPointBatch(embeddings)
-index.createIndex({'post': 2}, print_progress=True)
-index.saveIndex('dense_index_nonoptim.bin', save_data=True)
-
-print(index)
+create_and_store_index(embeddings, name='sub_app/dense_index_nonoptim.bin')
