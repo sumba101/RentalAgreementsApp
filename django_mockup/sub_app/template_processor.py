@@ -2,7 +2,7 @@ import chevron
 import inflect
 
 # Trial
-mhash = {
+trial_mhash = {
     'agreement_date_day': '20',
     'agreement_date_month': 'April',
     'agreement_date_year': '2011',
@@ -43,14 +43,21 @@ mhash = {
 def receive_values(mhash):
     # A map where key values are same as the variable names in form and values are the values of input given by user
     # Look at forms.py file to see what the variables names are(i.e the key names)
-    with open('template_mustach.txt', 'r') as f:
+    with open('sub_app/template_mustach.txt', 'r') as f:
         template = f.read()
 
     refine_hash(mhash)
-    chevron.render(template=template, data=mhash)
+    return chevron.render(template=template, data=mhash)
 
+def produce_with_unstructured_data(current_agreement_state,freeform):
+    # Here current_agreement_state is a string of the current rental agreement state after modification
+    # freeform would be the freeform data, each new clause would be start with a * and hence that can be used as the separator for processing
+    pass
+    # function must return the state of the rental agreement after the merging of the freeform data clauses in the current agreement state
+    # must be returned as a string itself
 
 def refine_hash(mhash):
+    #todo need to handle dates and days properly, the value returned would be an object of datetime.date
     p = inflect.engine()
 
     period_value = int(mhash['period_value'])
