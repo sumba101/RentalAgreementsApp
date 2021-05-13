@@ -1,25 +1,29 @@
 {% extends "sub_app/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<header>
-  <h1 style="color: #2b2b2b">Enter the dataset to work on</h1>
-</header>
+<div class="header_params">
+  <h1 style="color: #2b2b2b">Thank you</h1>
+</div>
 <section class="section1">
  <div class="post-content">
-     <h4 style="width: 500px; margin: 0 auto;">Enter the URL for the website to scrape</h4>
-    <form method="post">
-        {% csrf_token %}
-        {{ scraper|crispy }}
+     <h4 style="width: 500px; margin: 0 auto;">Thank you for using our application</h4>
+    {% if Data_done == 0 %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+            {{ scraper|crispy }}
+            <br />
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
         <br />
-        <button type="submit" class="btn btn-success">Submit</button>
-    </form>
-        <br />
+    {% endif %}
 
 
     {% if Download == 1 %}
     <div>
         <form method="get" action="{% url "csv_download" %}" >
-            <button type="submit" id="btDownload" class="btn btn-success" >Download Data</button>
+            <button type="submit" id="btDownload" class="btn btn-success" >Download Rental Agreement</button>
         </form>
     </div>
     {% endif %}

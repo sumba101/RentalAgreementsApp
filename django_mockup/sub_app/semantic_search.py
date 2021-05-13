@@ -1,6 +1,6 @@
-import torch
 from transformers import AutoTokenizer, AutoModel
 import nmslib
+import torch
 
 
 def get_query_list(freeform, delimiter='*'):
@@ -70,3 +70,4 @@ def search_clauses_for_queries(query_embeddings, index):
     searched_clauses = [clauses[result[0][0]] for result in neighbors]
 
     return searched_clauses
+

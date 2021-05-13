@@ -1,2 +1,3 @@
 .idea/
 django_mockup/.idea/
+django_mockup/sub_app/__pycache__

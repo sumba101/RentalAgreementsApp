@@ -53,13 +53,17 @@ class QuestionsForm(forms.Form):
                                             help_text='In months')
 
     furnishing = forms.ChoiceField(label="Furnishing", widget=forms.RadioSelect,
-                                   choices=[('1', 'Fully furnished'), ('2', 'Semi furnished'), ('3', 'Unfurnished')])
+                                   choices=[('Fully furnished', 'Fully furnished'), ('Semi furnished', 'Semi furnished'), ('Unfurnished', 'Unfurnished')])
     furnishing_present = forms.CharField(label="List Furnishing present in house and/or also description of house",
                                          max_length=200, widget=forms.Textarea(attrs={"rows": 10, "cols": 30}))
 
 
 class TempAgreementConfirmation(forms.Form):
     temp_state = forms.CharField(label="Edit this temporary state if needed",
-                                 widget=forms.Textarea(attrs={"rows": 50, "cols": 50}))
-    freeform = forms.CharField(label="Edit this temporary state if needed",
+                                 widget=forms.Textarea(attrs={"rows": 50, "cols": 60}))
+    freeform = forms.CharField(label="Enter points to add (starting with *) in freeform manner",
                                widget=forms.Textarea(attrs={"rows": 20, "cols": 50}))
+
+class FinalEdits(forms.Form):
+    final_edit = forms.CharField(label="Make final edits if needed",
+                                 widget=forms.Textarea(attrs={"rows": 50, "cols": 60}))

@@ -1,7 +1,7 @@
 import chevron
 import inflect
 
-from semantic_search import *
+from sub_app.semantic_search import search_clauses_for_queries, get_query_list, load_index, load_models, get_embeddings
 
 
 def receive_values(mhash):
