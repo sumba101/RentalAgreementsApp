@@ -28,7 +28,12 @@ def produce_with_unstructured_data(current_agreement_state, freeform, index_name
     query_embeddings = get_embeddings(queries, tokenizer, model)
     index = load_index(index_name)
     additive_clauses = search_clauses_for_queries(query_embeddings, index)
-    updated_agreement = add_clauses_to_agreement(current_agreement_state, additive_clauses)
+
+    delimiter = 'except for normal wear and tear.'
+    agreement_split = current_agreement_state.split(delimiter)
+    agreement_split[0] += delimiter
+    updated_agreement = add_clauses_to_agreement(agreement_split[0], additive_clauses)
+    updated_agreement += agreement_split[1]
 
     return updated_agreement
 
