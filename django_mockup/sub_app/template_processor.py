@@ -27,7 +27,7 @@ def produce_with_unstructured_data(current_agreement_state, freeform, index_name
 
     freeform = modify_freeform_input(freeform)
     queries = get_query_list(freeform)
-    # tokenizer, model = load_models()
+
     query_embeddings = get_embeddings(queries, tokenizer, model)
     index = load_index(index_name)
     additive_clauses = search_clauses_for_queries(query_embeddings, index)
