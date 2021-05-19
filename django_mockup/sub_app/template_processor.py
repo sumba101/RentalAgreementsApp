@@ -1,7 +1,7 @@
 import chevron
 import inflect
 
-from sub_app.semantic_search import search_clauses_for_queries, get_query_list, load_index, load_models, get_embeddings
+from sub_app.semantic_search import *
 
 tokenizer, model = load_models()
 
@@ -18,7 +18,7 @@ def receive_values(mhash):
 
 
 def produce_with_unstructured_data(current_agreement_state, freeform, index_name='sub_app/dense_index_nonoptim.bin'):
-    global tokenizer,model
+    global tokenizer, model
     # Here current_agreement_state is a string of the current rental agreement state after modification
     # freeform would be the freeform data, each new clause would be start with a * and hence that can be used as the
     # separator for processing pass
@@ -37,6 +37,7 @@ def produce_with_unstructured_data(current_agreement_state, freeform, index_name
     agreement_split[0] += delimiter
     updated_agreement = add_clauses_to_agreement(agreement_split[0], additive_clauses)
     updated_agreement += agreement_split[1]
+    updated_agreement = remove_duplicates(updated_agreement, old_delimiter='\n\n', new_delimiter='\n\n')
 
     return updated_agreement
 
@@ -199,10 +200,12 @@ The tenant accepts that the house is provided in Unfurnished condition, which is
     *I will pay the property & other taxes on house.*Dont smoke at my home. *You are not rented for forever, so do not expect to make this your permanent home.
     *We both will take a copy of it.
      *You don't have to pay any advance.
+     * Dont smoke at my home.
     *I will increase the rent by 5% every year.
     *No pets here.
     *
     I am not responsible for any injury or damage at my place, in case of any accident.
+    * Please don't keep pets here!
 
 
     '''

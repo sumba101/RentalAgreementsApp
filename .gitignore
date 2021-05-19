@@ -2,4 +2,5 @@
 django_mockup/.idea/
 django_mockup/sub_app/__pycache__
 django_mockup/sub_app/RentalAgreementsData/RentalAgreementTextFiles
+django_mockup/RentalProj/__pycache__
 django_mockup/sub_app/RentalAgreementsData/RentalAgreementsPDFs

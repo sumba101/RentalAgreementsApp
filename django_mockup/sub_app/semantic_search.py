@@ -10,6 +10,7 @@ def get_query_list(freeform, delimiter='*'):
     for split in splits:
         if not split.strip() == '':
             queries.append(split.strip())
+    queries = remove_duplicates(queries)
 
     return queries
 
@@ -23,6 +24,22 @@ def load_uncommon_clauses(filename='sub_app/uncommon-clauses.txt'):
                 clauses.append(line.strip())
 
     return clauses
+
+
+def remove_duplicates(strings, old_delimiter=None, new_delimiter=None):
+    old_lines = strings if not old_delimiter else strings.split(old_delimiter)
+    seen_set = set()
+    new_lines = list()
+
+    for line in old_lines:
+        line = line.strip()
+        if line not in seen_set:
+            new_lines.append(line)
+            seen_set.add(line)
+
+    deduplicated = new_lines if not new_delimiter else new_delimiter.join(new_lines)
+
+    return deduplicated
 
 
 def load_models(model_name='sentence-transformers/roberta-base-nli-stsb-mean-tokens'):
@@ -67,7 +84,7 @@ def load_index(name):
 def search_clauses_for_queries(query_embeddings, index):
     clauses = load_uncommon_clauses()
     neighbors = index.knnQueryBatch(query_embeddings, k=1, num_threads=2)
-    searched_clauses = [clauses[result[0][0]] for result in neighbors]
+    searched_clauses = [clauses[result[0][0]].strip() for result in neighbors]
+    searched_clauses = remove_duplicates(searched_clauses)
 
     return searched_clauses
-
