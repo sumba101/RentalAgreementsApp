@@ -2,6 +2,8 @@ from transformers import AutoTokenizer, AutoModel
 import nmslib
 import torch
 
+from dataset_handler import *
+
 
 def get_query_list(freeform, delimiter='*'):
     splits = freeform.split(delimiter)
@@ -15,13 +17,9 @@ def get_query_list(freeform, delimiter='*'):
     return queries
 
 
-def load_uncommon_clauses(filename='sub_app/uncommon-clauses.txt'):
-    clauses = list()
-
-    with open(filename, 'r') as f:
-        for line in f.readlines():
-            if not line.strip() == '':
-                clauses.append(line.strip())
+def load_clauses(dataset_dir='sub_app/data/dataset'):
+    clauses_dict = load_clauses_dict(dataset_dir)
+    clauses = list(clauses_dict.values())
 
     return clauses
 
@@ -82,7 +80,7 @@ def load_index(name):
 
 
 def search_clauses_for_queries(query_embeddings, index):
-    clauses = load_uncommon_clauses()
+    clauses = load_clauses()
     neighbors = index.knnQueryBatch(query_embeddings, k=1, num_threads=2)
     searched_clauses = [clauses[result[0][0]].strip() for result in neighbors]
     searched_clauses = remove_duplicates(searched_clauses)

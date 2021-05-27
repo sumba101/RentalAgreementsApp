@@ -21,7 +21,6 @@ def questions(request):
     if request.method == 'POST':
         form = QuestionsForm( request.POST )
         if form.is_valid():
-            print(form.cleaned_data)
             # A map where key values are same as the variable names in form and values are the values of input given by user
 
             temp_agreement_state = receive_values(form.cleaned_data)

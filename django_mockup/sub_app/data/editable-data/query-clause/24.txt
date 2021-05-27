@@ -1,0 +1,6 @@
+24
+
+The tenant agrees that air conditioning shall not be set below ____ degrees and heat shall not be set above ____, and that the fan setting shall be ____. Doors and windows shall be closed when either heat or air conditioning is in operation.
+
+For the AC, plese don't set the temperature below 65 degree Fahrenheit and for the radiator, not above 80 degree Fahrenheit, and the fan at 3. Also, close the windows when they are on.
+

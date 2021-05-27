@@ -1,6 +1,6 @@
 import chevron
 import inflect
-
+from dateutil.relativedelta import relativedelta
 from sub_app.semantic_search import *
 
 tokenizer, model = load_models()
@@ -9,6 +9,8 @@ tokenizer, model = load_models()
 def receive_values(mhash):
     # A map where key values are same as the variable names in form and values are the values of input given by user
     # Look at forms.py file to see what the variables names are(i.e the key names)
+    mhash['end_date'] = mhash['start_date'] + relativedelta(months=mhash['period_value'])
+    print(mhash)
     with open('sub_app/template_mustach.txt', 'r') as f:
         template = f.read()
 

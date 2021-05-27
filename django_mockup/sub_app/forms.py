@@ -9,7 +9,7 @@ class QuestionsForm(forms.Form):
     owner_salutation = forms.CharField(label="Salutation of Owner",
                                        widget=forms.Select(choices=[('Mrs.', 'Mrs.'), ('Mr.', 'Mr.'), ('Ms.', 'Ms.')]))
     owner_name = forms.CharField(label='Name of the Owner', max_length=100)
-    owner_age = forms.IntegerField(label='Age of the Owner', help_text='In years')
+    owner_age = forms.IntegerField(label='Age of the Owner', help_text='In years',min_value=18,max_value=110)
     owner_address = forms.CharField(label='Address of the Owner', max_length=1000,
                                     widget=forms.Textarea(attrs={"rows": 10, "cols": 30}))
 
@@ -23,7 +23,7 @@ class QuestionsForm(forms.Form):
     tenant_salutation = forms.CharField(label="Salutation of Tenant",
                                         widget=forms.Select(choices=[('Mrs.', 'Mrs.'), ('Mr.', 'Mr.'), ('Ms.', 'Ms.')]))
     tenant_name = forms.CharField(label='Name of the Tenant', max_length=100)
-    tenant_age = forms.IntegerField(label='Age of the Tenant', help_text='In years')
+    tenant_age = forms.IntegerField(label='Age of the Tenant', help_text='In years',min_value=18,max_value=110)
     tenant_address = forms.CharField(label='Address of the Tenant', max_length=1000,
                                      widget=forms.Textarea(attrs={"rows": 10, "cols": 30}))
 
@@ -37,20 +37,21 @@ class QuestionsForm(forms.Form):
     house_address = forms.CharField(label='Address of the rented property', max_length=1000,
                                     widget=forms.Textarea(attrs={"rows": 10, "cols": 30}))
 
-    period_value = forms.IntegerField(label='Period of stay', help_text='In number of months')
+    period_value = forms.IntegerField(label='Period of stay', help_text='In number of months',min_value=1)
 
     start_date = forms.DateField(label='Lease start date', help_text="year/month/day")
-    end_date = forms.DateField(label='Lease end date', help_text="year/month/day")
+    # end_date can be calculated from above details
+    # end_date = forms.DateField(label='Lease end date', help_text="year/month/day")
 
-    monthly_rent_value = forms.IntegerField(label='Monthly rent value', help_text='In Rs')
-    monthly_rent_deadline = forms.IntegerField(label='Deadline day for payment of monthly rent', help_text='Fixed day of every month')
-    deposit_amount_nos = forms.IntegerField(label='Deposit amount', help_text='In Rs')
+    monthly_rent_value = forms.IntegerField(label='Monthly rent value', help_text='In Rs',min_value=0)
+    monthly_rent_deadline = forms.IntegerField(label='Deadline day for payment of monthly rent', help_text='Fixed day of every month',min_value=0)
+    deposit_amount_nos = forms.IntegerField(label='Deposit amount', help_text='In Rs',min_value=0)
 
     max_months_no_rent = forms.IntegerField(label='Number of months for which the tenant cannot defer payment of monthly rent',
-                                            help_text='In months')
+                                            help_text='In months',min_value=0)
 
     advance_notice_end = forms.IntegerField(label='Minimum number of months for notice period after which agreement can be terminated early if desired by either party',
-                                            help_text='In months')
+                                            help_text='In months',min_value=0)
 
     furnishing = forms.ChoiceField(label="Furnishing", widget=forms.RadioSelect,
                                    choices=[('Fully furnished', 'Fully furnished'), ('Semi furnished', 'Semi furnished'), ('Unfurnished', 'Unfurnished')])

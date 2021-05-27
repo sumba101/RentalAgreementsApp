@@ -3,7 +3,7 @@ from semantic_search import *
 tokenizer, model = load_models()
 print('Tokenizer & model loaded.')
 
-clauses = load_uncommon_clauses()
+clauses = load_clauses()
 print('clauses', clauses)
 print(len(clauses))
 

@@ -1,5 +1,4 @@
 # source code: https://github.com/baruchel/txt2pdf
-#! /usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import reportlab.lib.pagesizes
