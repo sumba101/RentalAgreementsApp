@@ -34,14 +34,15 @@ class QuestionsForm(forms.Form):
                                                  widget=forms.Select(choices=[('Mrs.', 'Mrs.'), ('Mr.', 'Mr.'), ('Ms.', 'Ms.')]))
     tenant_relative_name = forms.CharField(label='Name of Tenant\'s relative', max_length=100)
 
+    city = forms.CharField(label='City', max_length=1000,
+                                    widget=forms.Textarea(attrs={"rows": 10, "cols": 30}))
+
     house_address = forms.CharField(label='Address of the rented property', max_length=1000,
                                     widget=forms.Textarea(attrs={"rows": 10, "cols": 30}))
 
     period_value = forms.IntegerField(label='Period of stay', help_text='In number of months',min_value=1)
 
     start_date = forms.DateField(label='Lease start date', help_text="year/month/day")
-    # end_date can be calculated from above details
-    # end_date = forms.DateField(label='Lease end date', help_text="year/month/day")
 
     monthly_rent_value = forms.IntegerField(label='Monthly rent value', help_text='In Rs',min_value=0)
     monthly_rent_deadline = forms.IntegerField(label='Deadline day for payment of monthly rent', help_text='Fixed day of every month',min_value=0)

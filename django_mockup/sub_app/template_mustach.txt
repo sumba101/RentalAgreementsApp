@@ -33,7 +33,7 @@ The owner shall have full control over the supervision and management in respect
 
 The tenant shall not use the demised premises for any purpose other than for which it was let out nor shall sublet or sublease the portion let out to him to any third party.
 
-Tenant shall not make any changes without written consent from the landlord.
+Tenant shall not make any changes without written consent from the landlord. The owner shall not be liable to pay any charges against the expenses incurred by the tenant for any additional furnishing at the demised premises.
 
 In case of damage caused by the tenant to the said premises during the period of use, tenant shall be held responsible for compensation and other charges as the case may be and such charges may be adjusted from the security deposit amount when the same is refunded upon completion of the licensing agreement tenure (vacation of flat).
 
@@ -47,6 +47,8 @@ The tenancy may be renewed for further period/s mutually agreed between the part
 
 The tenant will take the responsibility to keep the kitchen, bathroom drains free of things causing clogging. Repairs for clogging shall be borne by tenant.
 
+Day-to-day repair such as fuses, leakage of water taps, replacement of defective MCBs, Bulbs, Tube lights, Tube light Fittings etc. shall be rectified by the tenant at their own cost
+
 The tenants will dispose all waste material lawfully in accordance to garbage disposal guidelines.
 
 The owner shall not be held responsible for any theft/burglary/fire/accident met with by the tenant.
@@ -54,6 +56,16 @@ The owner shall not be held responsible for any theft/burglary/fire/accident met
 The lease shall stand automatically terminated in case the tenant fails to comply with any of the stipulated terms and conditions of this agreement.
 
 At the completion of the agreement, the tenant should return possession of the house to the owner in good, tenantable condition except for normal wear and tear.
+
+It is further agreed between the parties that in case of any dispute the {{city}} court shall have the exclusive jurisdiction over the disputes.
+
+The owner/ his authorized agents shall acknowledge and give valid & duly stamped receipts as and when requested by the tenant as conclusive proof of rent payments on demand from the tenant.
+
+If the whole or any part of the said Premises shall at any time during the term of the lease be destroyed or damaged due to any force majeure circumstances including storm, tempest, flood, Act of God, an act of terrorism, war or any other irresistible force or the Tenant is deprived of the use of the said Premises for reasons not attributable to the Tenant, the Owner hereby undertakes to restore the said Premises as expeditiously as possible or, as the case may be, to remove the impediment in its use and occupation as expeditiously as possible. Notwithstanding the foregoing, upon the happening of any such event as aforesaid, the Tenant shall not be liable to pay Lease Rent during the period the Tenant is deprived of the use of the said Premises or any part thereof. The Tenant shall also have the option to terminate the Lease after the event by giving one month’s notice and without payment of any rent in lieu thereof and without incurring any liability to pay any other amount whatsoever to the Owner.
+
+In case of TDS(Tax Deducted at Source) deduction, the Tenant shall furnish the TDS certificate to the owner at the end of each calendar quarter well within time so as to enable the owner to file his income tax return within the stipulated timeframe. Each of the parties will bear the consequences for any non-compliance on account of the tax liability of its part.
+
+This Deed shall be governed by and interpreted in accordance with the laws of India. All disputes, differences, disagreements, controversies or claims arising out of or in connection with this Deed, including the validity, effect, and interpretation thereof, shall, at the request of either party, be referred to the sole arbitrator mutually appointed by both the parties, who shall conduct the arbitration proceedings in English and in accordance with the provisions of the Arbitration and Conciliation Act, 1996, or any amendment or statutory modification or replacement/substitution thereof. Any award made by the arbitrator shall be final and binding on the Parties. The cost and expenses of the arbitration proceedings, including fees of the arbitrators, shall be borne equally by the Parties. The venue of arbitration shall be mutually decided by the parties.
 
 The tenant accepts that the house is provided in {{furnishing}} condition, which is provided with the following fittings and fixtures:
 {{furnishing_present}}
